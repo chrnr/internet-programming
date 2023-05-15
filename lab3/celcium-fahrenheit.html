@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <script>
+        function convertFahrenheitToCelsius() {
+            var fahrenheitInput = document.getElementById("fahrenheit");
+            var celsiusInput = document.getElementById("celsius");
+            
+            var fahrenheit = parseFloat(fahrenheitInput.value);
+            var celsius = (5 / 9) * (fahrenheit - 32);
+
+            if (!isNaN(celsius)) {
+                celsiusInput.value = celsius.toFixed(2);
+            } else {
+                celsiusInput.value = "";
+            }
+        }
+
+        function convertCelsiusToFahrenheit() {
+            var fahrenheitInput = document.getElementById("fahrenheit");
+            var celsiusInput = document.getElementById("celsius");
+            
+            var celsius = parseFloat(celsiusInput.value);
+            var fahrenheit = (celsius * (9 / 5)) + 32;
+
+            if (!isNaN(fahrenheit)) {
+                fahrenheitInput.value = fahrenheit.toFixed(2);
+            } else {
+                fahrenheitInput.value = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="fahrenheit">Температура за Фаренгейтом:</label>
+    <input type="text" id="fahrenheit" oninput="convertFahrenheitToCelsius()">
+    <br>
+    <label for="celsius">Температура за Цельсієм:</label>
+    <input type="text" id="celsius" oninput="convertCelsiusToFahrenheit()">
+</body>
+</html>
